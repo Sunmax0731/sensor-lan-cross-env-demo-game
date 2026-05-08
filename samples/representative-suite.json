@@ -1,0 +1,87 @@
+{
+  "product": "sensor-lan-cross-env-demo-game",
+  "rank": 67,
+  "scenarios": [
+    {
+      "id": "happy-path",
+      "type": "happy-path",
+      "title": "LANホストの通常処理",
+      "inputs": {
+        "hostId": "host-a",
+        "sensorPacket": "tilt:0.32",
+        "latencyMs": 24,
+        "fallbackMode": "keyboard-ready"
+      },
+      "expected": {
+        "status": "pass",
+        "accepted": 1,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "missing-required",
+      "type": "missing-required",
+      "title": "sensorPacket不足時の停止",
+      "inputs": {
+        "hostId": "host-a",
+        "sensorPacket": "",
+        "latencyMs": 24,
+        "fallbackMode": "keyboard-ready"
+      },
+      "expected": {
+        "status": "error",
+        "accepted": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "warning",
+      "type": "warning",
+      "title": "センサー入力の注意喚起",
+      "inputs": {
+        "hostId": "host-a",
+        "sensorPacket": "stale",
+        "latencyMs": 180,
+        "fallbackMode": "keyboard-active"
+      },
+      "flags": [
+        "needsReview"
+      ],
+      "expected": {
+        "status": "warning",
+        "accepted": 1,
+        "warnings": 1
+      }
+    },
+    {
+      "id": "mixed-batch",
+      "type": "mixed-batch",
+      "title": "フォールバックを含む混在バッチ",
+      "items": [
+        {
+          "hostId": "host-a",
+          "sensorPacket": "tilt:0.32",
+          "latencyMs": 24,
+          "fallbackMode": "keyboard-ready"
+        },
+        {
+          "hostId": "host-a",
+          "sensorPacket": "",
+          "latencyMs": 24,
+          "fallbackMode": "keyboard-ready"
+        },
+        {
+          "hostId": "host-a",
+          "sensorPacket": "stale",
+          "latencyMs": 180,
+          "fallbackMode": "keyboard-active"
+        }
+      ],
+      "expected": {
+        "status": "warning",
+        "accepted": 2,
+        "warnings": 2
+      }
+    }
+  ]
+}
