@@ -1,0 +1,13 @@
+{
+  "product": "sensor-lan-cross-env-demo-game",
+  "title": "センサー・LAN・クロス環境技術デモゲーム",
+  "domain": "Game",
+  "ideaNo": 6,
+  "platformType": "browser-web",
+  "expectedPublicTarget": "GitHub Pages / GitHub Release",
+  "browser": {
+    "evidence": "dist/web-smoke-result.json"
+  },
+  "android": null,
+  "evidence": "dist/platform-runtime-gate-result.json"
+}
