@@ -9,6 +9,7 @@
   ],
   "expectedValidationResult": "pass",
   "expectedWebSmokeResult": "pass",
+  "expectedQcdsMinimum": "A-",
   "manualTestStatus": "not-executed",
   "releaseAssetContract": [
     "dist/sensor-lan-cross-env-demo-game-docs.zip",

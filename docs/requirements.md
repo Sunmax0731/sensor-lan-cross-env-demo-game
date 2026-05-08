@@ -1,20 +1,16 @@
 # 要件定義
 
-対象: センサー・LAN・クロス環境技術デモゲーム (Rank 67, Game No.6)
+## 対象
+
+| 67 | P3 | 49 | Game | 6 | センサー・LAN・クロス環境技術デモゲーム | sensor-lan-cross-env-demo-game | GitHub Pages / GitHub Release | 複数環境連携は実機やネットワーク差に左右され、遊びとして成立する前に検証が散らばりやすい。 |
 
 ## 目的
 
-センサー、LAN、ブラウザ環境差をミニゲームとして確認する。
+センサー入力とLAN同期を模擬し、クロス環境の遅延や欠落を遊びとして確認するブラウザ技術デモ。
 
-## 課題
+## 必須要件
 
-技術デモとしては有用だが、遊びとしての完成度を作るには調整が多い。
-
-## 要件
-
-- 必須入力 `hostId`、`sensorPacket`、`latencyMs`、`fallbackMode` を検証する。
-- happy-path / missing-required / warning / mixed-batch を代表シナリオとして保持する。
-- CLI、静的Web UI、自動テスト、docs ZIP、release evidence を同一repoで完結させる。
-- 正式docsはNON PICKUP行、ZIP metadata、ドメインdocsを根拠に正常な日本語で再構成する。
-
-静的Webまたはローカルサーバーで確認できる browser game として、非blank表示、主要要素、主要操作を検証します。
+- 代表シナリオ4種を自動検証する。
+- GitHub Pagesまたはローカルサーバーで起動できる静的Webゲームとして、非blank表示と主要操作を必須とする。
+- 文字化けを検出し、正式成果物へ残さない。
+- QCDSの10段階スケールを機械検証する。

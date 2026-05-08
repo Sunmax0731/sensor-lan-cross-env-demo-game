@@ -1,17 +1,17 @@
 # 仕様
 
-対象: センサー・LAN・クロス環境技術デモゲーム (Rank 67, Game No.6)
+- 名称: センサー・LAN・クロス環境技術デモゲーム
+- Repo: sensor-lan-cross-env-demo-game
+- Closed alpha platform: static Web technical demo / GitHub Pages
+- 主な公開先: GitHub Pages / GitHub Release
 
-| 入力 | 用途 |
-| hostId | センサー・LAN・クロス環境技術デモゲーム の評価、表示、レポートに必要 |
-| sensorPacket | センサー・LAN・クロス環境技術デモゲーム の評価、表示、レポートに必要 |
-| latencyMs | センサー・LAN・クロス環境技術デモゲーム の評価、表示、レポートに必要 |
-| fallbackMode | センサー・LAN・クロス環境技術デモゲーム の評価、表示、レポートに必要 |
+## 入力
 
-## 出力
+- `sensorPacket`
+- `peerState`
+- `latencyClass`
+- `playMode`
 
-- `dist/validation-result.json`
-- `dist/web-smoke-result.json`
-- `docs/qcds-strict-metrics.json`
-- `docs/qcds-regression-baseline.json`
-- `dist/sensor-lan-cross-env-demo-game-docs.zip`
+## 主要機能
+
+代表シナリオ評価、Web表示、CLI評価、docs / QCDS / release evidence 生成。

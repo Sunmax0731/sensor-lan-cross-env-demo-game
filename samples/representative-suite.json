@@ -5,12 +5,12 @@
     {
       "id": "happy-path",
       "type": "happy-path",
-      "title": "LANホストの通常処理",
+      "title": "センサー・LAN・クロス環境技術デモゲームの通常フロー",
       "inputs": {
-        "hostId": "host-a",
-        "sensorPacket": "tilt:0.32",
-        "latencyMs": 24,
-        "fallbackMode": "keyboard-ready"
+        "sensorPacket": "gyro-ready",
+        "peerState": "joined",
+        "latencyClass": "stable",
+        "playMode": "demo"
       },
       "expected": {
         "status": "pass",
@@ -23,10 +23,10 @@
       "type": "missing-required",
       "title": "sensorPacket不足時の停止",
       "inputs": {
-        "hostId": "host-a",
         "sensorPacket": "",
-        "latencyMs": 24,
-        "fallbackMode": "keyboard-ready"
+        "peerState": "joined",
+        "latencyClass": "stable",
+        "playMode": "demo"
       },
       "expected": {
         "status": "error",
@@ -37,12 +37,12 @@
     {
       "id": "warning",
       "type": "warning",
-      "title": "センサー入力の注意喚起",
+      "title": "遅延不安定時の同期警告",
       "inputs": {
-        "hostId": "host-a",
-        "sensorPacket": "stale",
-        "latencyMs": 180,
-        "fallbackMode": "keyboard-active"
+        "sensorPacket": "gyro-ready",
+        "peerState": "joined",
+        "latencyClass": "unstable-noisy",
+        "playMode": "demo"
       },
       "flags": [
         "needsReview"
@@ -56,25 +56,25 @@
     {
       "id": "mixed-batch",
       "type": "mixed-batch",
-      "title": "フォールバックを含む混在バッチ",
+      "title": "正常・不足・警告を含む混在バッチ",
       "items": [
         {
-          "hostId": "host-a",
-          "sensorPacket": "tilt:0.32",
-          "latencyMs": 24,
-          "fallbackMode": "keyboard-ready"
+          "sensorPacket": "gyro-ready",
+          "peerState": "joined",
+          "latencyClass": "stable",
+          "playMode": "demo"
         },
         {
-          "hostId": "host-a",
           "sensorPacket": "",
-          "latencyMs": 24,
-          "fallbackMode": "keyboard-ready"
+          "peerState": "joined",
+          "latencyClass": "stable",
+          "playMode": "demo"
         },
         {
-          "hostId": "host-a",
-          "sensorPacket": "stale",
-          "latencyMs": 180,
-          "fallbackMode": "keyboard-active"
+          "sensorPacket": "gyro-ready",
+          "peerState": "joined",
+          "latencyClass": "unstable-noisy",
+          "playMode": "demo"
         }
       ],
       "expected": {

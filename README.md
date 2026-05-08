@@ -1,34 +1,21 @@
 # センサー・LAN・クロス環境技術デモゲーム
 
-sensor-lan-cross-env-demo-game は、NON PICKUP 優先リスト Rank 67 / Game No.6 から昇格した closed alpha プロダクトです。センサー、LAN、ブラウザ環境差をミニゲームとして確認する。
+センサー入力とLAN同期を模擬し、クロス環境の遅延や欠落を遊びとして確認するブラウザ技術デモ。
 
-## Quick Start
+- Rank: 67
+- Tier: P3
+- Score: 49
+- Domain: Game
+- Idea No: 6
+- Repository: sensor-lan-cross-env-demo-game
+- 主な公開先: GitHub Pages / GitHub Release
+- Closed alpha platform: static Web technical demo / GitHub Pages
+
+## 実行
 
 ```powershell
-cd D:\AI\Game\sensor-lan-cross-env-demo-game
 npm test
 npm run cli
 ```
 
-## Closed Alpha Scope
-
-- 公開想定: GitHub Pages / GitHub Release
-- 対象ユーザー: LAN内デバイス連携をゲーム形式で確認したい開発者
-- 手動テスト: Codex側では未実施。手順は `docs/manual-test.md` と `docs/strict-manual-test-addendum.md` に記載
-
-## Architecture
-
-- `src/core`: プロダクト定義と代表シナリオ評価
-- `src/validators`: representative suite と期待結果の検証
-- `src/report`: validation result、web smoke、QCDS metrics、deterministic docs ZIP の生成
-- `src/review-model`: QCDS 評価モデル
-- `src/cli`: CLI 検証入口
-- `src/web`: 静的Web表示と主要操作
-- `src/game`: game loop と balancing の境界
-
-## Release Artifacts
-
-- `dist/sensor-lan-cross-env-demo-game-docs.zip`
-- `dist/validation-result.json`
-- `dist/web-smoke-result.json`
-- `docs/release-evidence.json`
+`npm test` は代表シナリオ、文字化け検査、Chrome headless smoke、QCDS strict metrics、docs ZIP生成を実行します。
